@@ -1,0 +1,46 @@
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.emoji {
+  position: absolute;
+  top: -2rem;
+  left: var(--left);
+  opacity: 0;
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  animation: fall var(--duration) var(--delay) linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -2rem, 0) rotate(0deg);
+  }
+
+  10%,
+  85% {
+    opacity: 0.42;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift), 105vh, 0) rotate(220deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emoji {
+    animation: none;
+    opacity: 0.25;
+    top: 12%;
+  }
+
+  .emoji:nth-child(even) {
+    top: 72%;
+  }
+}

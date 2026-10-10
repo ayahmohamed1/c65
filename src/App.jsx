@@ -12,6 +12,7 @@ import MemoriesPage from './pages/MemoriesPage.jsx'
 import SongPage from './pages/SongPage.jsx'
 import VideoPage from './pages/VideoPage.jsx'
 import LetterPage from './pages/LetterPage.jsx'
+import FallingEmojis from './components/FallingEmojis.jsx'
 
 const fade = {
   initial: { opacity: 0 },
@@ -26,6 +27,7 @@ export default function App() {
 
   return (
     <div className="w-full min-h-screen bg-cream">
+      <FallingEmojis />
       <AnimatePresence mode="wait">
         <motion.div key={page} {...fade} className="w-full min-h-screen">
 
